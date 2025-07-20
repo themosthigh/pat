@@ -1,7 +1,5 @@
 <script>
-	import { Greet } from '$lib/wailsjs/go/src/App';
+	import RequestForm from '$lib/components/request/request-form.svelte';
 </script>
 
-{#await Greet('from JS') then msg}
-	<h4>{msg}</h4>
-{/await}
+<RequestForm />
