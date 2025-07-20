@@ -48,8 +48,12 @@ ${JSON.stringify(e, null, 2)}`,
 		}
 	};
 
-	let className = "";
-	export { className as class };
+	interface Props {
+		class?: string;
+	}
+
+	let { class: className = "" }: Props = $props();
+	
 </script>
 
 <div class={twMerge("flex flex-col overflow-hidden", className)}>

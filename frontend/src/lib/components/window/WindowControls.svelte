@@ -26,7 +26,7 @@
 <div class="flex">
 	{#each windowButtons as { Icon, handler, type, size }}
 		<button
-			on:click={handler}
+			onclick={handler}
 			class="py-auto px-3 {type === 'destructive'
 				? 'hover:bg-destructive'
 				: 'hover:bg-foreground/10'}

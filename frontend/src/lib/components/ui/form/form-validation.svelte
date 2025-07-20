@@ -4,11 +4,16 @@
 	import type { HTMLAttributes } from "svelte/elements";
 
 	type $$Props = HTMLAttributes<HTMLParagraphElement>;
-	let className: string | undefined | null = undefined;
-	export { className as class };
+	interface Props {
+		class?: string | undefined | null;
+		[key: string]: any
+	}
+
+	let { class: className = undefined, ...rest }: Props = $props();
+	
 </script>
 
 <FormPrimitive.Validation
 	class={cn("text-[0.8rem] font-medium text-destructive", className)}
-	{...$$restProps}
+	{...rest}
 />

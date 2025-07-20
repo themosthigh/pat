@@ -4,10 +4,15 @@
 
 	import type IMonaco from "monaco-editor";
 
-	// this is fully reactive! setting value to another string will change the editor accordingly
-	export let value = "";
+	
 
-	export let options: IMonaco.editor.IStandaloneEditorConstructionOptions;
+	interface Props {
+		// this is fully reactive! setting value to another string will change the editor accordingly
+		value?: string;
+		options: IMonaco.editor.IStandaloneEditorConstructionOptions;
+	}
+
+	let { value = $bindable(""), options }: Props = $props();
 
 	const defaultOptions: IMonaco.editor.IStandaloneEditorConstructionOptions = {
 		language: "json",

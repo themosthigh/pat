@@ -1,14 +1,18 @@
-<script>
+<script lang="ts">
 	import { twMerge } from "tailwind-merge";
 	import Top from "./response-preview-top.svelte";
 	import JsonPreview from "./response-preview-json.svelte";
 	import Skeleton from "../ui/skeleton/skeleton.svelte";
 
-	export let data = "";
-	export let isLoading = false;
 
-	let className = "";
-	export { className as class };
+	interface Props {
+		data?: string;
+		isLoading?: boolean;
+		class?: string;
+	}
+
+	let { data = "", isLoading = false, class: className = "" }: Props = $props();
+	
 </script>
 
 <div class={twMerge("flex flex-col overflow-hidden", className)}>

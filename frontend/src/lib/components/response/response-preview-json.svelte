@@ -1,7 +1,11 @@
 <script lang="ts">
 	import MonacoEditor from "../editor/Editor.svelte";
 
-	export let data: string = "";
+	interface Props {
+		data?: string;
+	}
+
+	let { data = "" }: Props = $props();
 </script>
 
 <MonacoEditor value={data} options={{ readOnly: true }} />

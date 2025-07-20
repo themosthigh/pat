@@ -7,8 +7,14 @@
 
 	type $$Props = HTMLSelectAttributes;
 
-	let className: string | undefined | null = undefined;
-	export { className as class };
+	interface Props {
+		class?: string | undefined | null;
+		children?: import('svelte').Snippet;
+		[key: string]: any
+	}
+
+	let { class: className = undefined, children, ...rest }: Props = $props();
+	
 </script>
 
 <FormPrimitive.Select
@@ -17,8 +23,8 @@
 		"appearance-none bg-transparent font-normal",
 		className
 	)}
-	{...$$restProps}
+	{...rest}
 >
-	<slot />
+	{@render children?.()}
 </FormPrimitive.Select>
 <CaretSort class="absolute right-3 top-2.5 h-4 w-4 opacity-50" />

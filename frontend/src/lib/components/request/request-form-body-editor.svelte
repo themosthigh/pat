@@ -3,7 +3,11 @@
 	import { IconJson } from "@tabler/icons-svelte";
 	import Button from "$lib/components/ui/button/button.svelte";
 
-	export let body: string;
+	interface Props {
+		body: string;
+	}
+
+	let { body = $bindable() }: Props = $props();
 </script>
 
 <div class="flex-1 flex flex-col overflow-hidden">

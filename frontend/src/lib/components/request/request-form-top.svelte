@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { preventDefault } from 'svelte/legacy';
+
 	import { createEventDispatcher } from "svelte";
 	import { Button } from "$lib/components/ui/button";
 	import { Input } from "$lib/components/ui/input";
@@ -9,10 +11,10 @@
 
 	const dispatch = createEventDispatcher();
 
-	export let options = {} as {
+	let { options = $bindable({} as {
 		url: string;
 		method: string;
-	};
+	}) } = $props();
 
 	const handleSend = function () {
 		dispatch("request");
@@ -22,7 +24,7 @@
 <form
 	class="grid gap-1 p-1 border-b"
 	style="grid-template-columns: auto 1fr auto;"
-	on:submit|preventDefault={handleSend}
+	onsubmit={preventDefault(handleSend)}
 >
 	<Select.Root
 		selected={{ value: options.method, label: options.method }}
