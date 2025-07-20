@@ -1,16 +1,68 @@
-# README
+# PAT
 
-## About
+This should soon be an Insomnia/Postman replacement for devs that just want to test APIs and convert them to different forms.
 
-This is the official Wails Svelte-TS template.
+## Setup
 
-## Live Development
+1. Install `bun`
 
-To run in live development mode, run `wails dev` in the project directory. This will run a Vite development
-server that will provide very fast hot reload of your frontend changes. If you want to develop in a browser
-and have access to your Go methods, there is also a dev server that runs on http://localhost:34115. Connect
-to this in your browser, and you can call your Go code from devtools.
+```sh
+curl -fsSL https://bun.sh/install | bash
+```
 
-## Building
+2. Set up [wails](https://wails.io/docs/gettingstarted/installation)
 
-To build a redistributable, production mode package, use `wails build`.
+3. Install frontend dependencies
+
+```sh
+# from root directory
+cd ./frontend
+bun install
+```
+
+4. Run the application
+
+```sh
+# from root directory
+wails dev
+```
+
+5. Building the application
+
+```sh
+wails build
+```
+
+## Why I'm building this
+
+#### Electron is not giving ...
+
+The first time I tried out Electron (2020), my bundle was 250MB large. Electron is bulky, and takes way too many millis to start up.
+
+Most of my dev tools are built on ELectron, so I run out of RAM a lot
+
+#### Inspiration
+
+PAT stands for "Pretty good API Tool", or Patrick who specifically told me not to do this and instead find myself a girlfriend. This one's for you.
+
+## Features
+
+#### MVP
+
+- [ ] REST API calls
+- [ ] Request documents stored on disk
+- [ ] Response previews
+  - [ ] JSON
+  - [ ] Text
+  - [ ] Markup
+
+#### One day
+
+- [ ] GraphQL
+- [ ] Plugin support
+- [ ] Code generation (probably as a plugin)
+- [ ] Cloud backup and sync (Google drive, MongoDB)
+- [ ] Public API inventory
+- [ ] API Documentation
+- [ ] Data Presentation (tables and charts)
+- [ ] JSON query (like in Insomnia)
