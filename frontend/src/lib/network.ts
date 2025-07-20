@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-import type { RequestMethod } from './types';
+import type { RequestMethod } from "./types";
 
 export async function handleRequest(options: { method: RequestMethod; url: string }) {
 	const res = await axios.request({
@@ -8,7 +8,5 @@ export async function handleRequest(options: { method: RequestMethod; url: strin
 		baseURL: options.url
 	});
 
-	console.log(res);
-
-	return res.data;
+	return JSON.stringify(res.data, null, 2);
 }

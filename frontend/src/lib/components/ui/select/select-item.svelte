@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Select as SelectPrimitive } from "bits-ui";
-	import { Check } from "radix-icons-svelte";
+	import { IconCheck as Check } from "@tabler/icons-svelte";
 	import { cn } from "$lib/utils";
 
 	type $$Props = SelectPrimitive.ItemProps;

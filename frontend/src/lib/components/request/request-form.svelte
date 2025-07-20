@@ -1,22 +1,28 @@
 <script lang="ts">
-	import Top from './request-form-top.svelte';
-	import Preview from './request-form-preview.svelte';
+	import Top from "./request-form-top.svelte";
+	import Body from "./request-form-body-editor.svelte";
 
-	import { handleRequest } from '$lib/network';
-	import type { RequestMethod } from '$lib/types';
+	import { document } from "$lib/store/index";
 
-	let response: any = {};
-	let options = {
-		url: 'https://dummyjson.com/products',
-		method: 'GET' as RequestMethod
-	};
+	import { handleRequest } from "$lib/network";
+	import { twMerge } from "tailwind-merge";
 
 	const handleOnRequest = async function () {
-		response = await handleRequest(options);
+		const response = await handleRequest($document.request);
+		document.set({
+			...$document,
+			response: {
+				body: response,
+				responseType: "json"
+			}
+		});
 	};
+
+	let className = "";
+	export { className as class };
 </script>
 
-<div class="flex flex-col h-full w-screen max-w-screen overflow-hidden">
-	<Top on:request={handleOnRequest} bind:options />
-	<Preview data={response} />
+<div class={twMerge("flex flex-col overflow-hidden", className)}>
+	<Top on:request={handleOnRequest} bind:options={$document.request} />
+	<Body bind:body={$document.request.body} />
 </div>

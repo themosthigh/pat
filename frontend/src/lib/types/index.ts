@@ -1,1 +1,3 @@
-export type RequestMethod = 'GET' | 'POST' | 'DELETE' | 'PUT' | 'PATCH';
+export type RequestMethod = "GET" | "POST" | "DELETE" | "PUT" | "PATCH";
+
+export const RequestMethods: RequestMethod[] = ["GET", "POST"];
