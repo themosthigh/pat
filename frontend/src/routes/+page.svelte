@@ -1,5 +1,5 @@
 <script>
-	import { Greet } from '$lib/wailsjs/go/main/App';
+	import { Greet } from '$lib/wailsjs/go/src/App';
 </script>
 
 {#await Greet('from JS') then msg}

@@ -1,4 +1,4 @@
-module changeme
+module pat
 
 go 1.18
 

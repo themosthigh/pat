@@ -1,7 +1,7 @@
 {
 	"$schema": "https://wails.io/schemas/config.v2.json",
-	"name": "lite-api",
-	"outputfilename": "lite-api",
+	"name": "pat",
+	"outputfilename": "pat",
 	"frontend:install": "bun install",
 	"frontend:build": "bun run build",
 	"frontend:dev:watcher": "bun dev",
