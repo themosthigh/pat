@@ -4,10 +4,10 @@ This should soon be an Insomnia/Postman replacement for devs that just want to t
 
 ## Setup
 
-1. Install `bun`
+1. Install `pnpm`
 
 ```sh
-curl -fsSL https://bun.sh/install | bash
+npm install -g pnpm
 ```
 
 2. Set up [wails](https://wails.io/docs/gettingstarted/installation)
@@ -17,7 +17,7 @@ curl -fsSL https://bun.sh/install | bash
 ```sh
 # from root directory
 cd ./frontend
-bun install
+pnpm install
 ```
 
 4. Run the application

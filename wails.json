@@ -2,9 +2,9 @@
 	"$schema": "https://wails.io/schemas/config.v2.json",
 	"name": "pat",
 	"outputfilename": "pat",
-	"frontend:install": "bun install",
-	"frontend:build": "bun run build",
-	"frontend:dev:watcher": "bun dev",
+	"frontend:install": "pnpm install",
+	"frontend:build": "pnpm run build",
+	"frontend:dev:watcher": "pnpm dev",
 	"frontend:dev:serverUrl": "auto",
 	"wailsjsdir": "./frontend/src/lib",
 	"author": {
