@@ -8,7 +8,7 @@ export const document = writable({
 		body: ""
 	},
 	response: {
-		body: "{}",
+		body: "",
 		responseType: "json"
 	},
 
