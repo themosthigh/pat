@@ -8,14 +8,36 @@
 	import { twMerge } from "tailwind-merge";
 
 	const handleOnRequest = async function () {
-		const response = await handleRequest($document.request);
-		document.set({
-			...$document,
-			response: {
-				body: response,
-				responseType: "json"
-			}
-		});
+		try {
+			document.set({
+				...$document,
+				response: {
+					body: "",
+					responseType: "",
+				},
+				state: {
+					isLoading: true,
+				},
+			});
+
+			const response = await handleRequest($document.request);
+
+			document.set({
+				...$document,
+				response: {
+					body: response,
+					responseType: "json",
+				},
+			});
+		} catch (e) {
+		} finally {
+			document.set({
+				... $document,
+				state: {
+					isLoading: false,
+				},
+			});
+		}
 	};
 
 	let className = "";

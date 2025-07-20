@@ -9,5 +9,5 @@
 	class="max-w-screen h-full overflow-hidden grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 bg-background"
 >
 	<RequestForm class="border-b md:border-r md:border-b-0" />
-	<ResponsePreview data={$document.response.body} />
+	<ResponsePreview data={$document.response.body} isLoading={$document.state.isLoading}/>
 </div>
