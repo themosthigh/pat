@@ -30,9 +30,17 @@
 				},
 			});
 		} catch (e) {
+			document.set({
+				...$document,
+				response: {
+					body: `// Error
+${JSON.stringify(e, null, 2)}`,
+					responseType: "json",
+				},
+			});
 		} finally {
 			document.set({
-				... $document,
+				...$document,
 				state: {
 					isLoading: false,
 				},
