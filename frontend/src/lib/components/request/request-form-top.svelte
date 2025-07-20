@@ -5,6 +5,8 @@
 	import * as Select from "$lib/components/ui/select";
 	import { RequestMethods } from "$lib/types";
 
+	import { IconPlayerPlay as IconRun } from "@tabler/icons-svelte";
+
 	const dispatch = createEventDispatcher();
 
 	export let options = {} as {
@@ -13,19 +15,22 @@
 	};
 
 	const handleSend = function () {
-		console.log("Sending this function");
 		dispatch("request");
 	};
 </script>
 
-<div class="grid gap-1 p-1 border-b" style="grid-template-columns: auto 1fr auto;">
+<form
+	class="grid gap-1 p-1 border-b"
+	style="grid-template-columns: auto 1fr auto;"
+	on:submit|preventDefault={handleSend}
+>
 	<Select.Root
 		selected={{ value: options.method, label: options.method }}
 		onSelectedChange={(selected) => {
 			options.method = selected.value;
 		}}
 	>
-		<Select.Trigger class="w-fit gap-4">
+		<Select.Trigger class="w-fit gap-2">
 			<Select.Value placeholder="Method" />
 		</Select.Trigger>
 		<Select.Content>
@@ -37,5 +42,7 @@
 
 	<!-- URL -->
 	<Input bind:value={options.url} class="bg-transparent" placeholder="https://..." />
-	<Button on:click={handleSend} class="uppercase">Send</Button>
-</div>
+	<Button type="submit" class="uppercase" variant="secondary">
+		<IconRun size={16} />
+	</Button>
+</form>

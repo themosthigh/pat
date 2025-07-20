@@ -11,8 +11,7 @@ export const document = writable({
 		body: "",
 		responseType: "json"
 	},
-
-	status: {
+	state: {
 		isLoading: false
 	}
 });

@@ -8,5 +8,12 @@ export async function handleRequest(options: { method: RequestMethod; url: strin
 		baseURL: options.url
 	});
 
-	return JSON.stringify(res.data, null, 2);
+	console.table(res);
+
+	if (res.headers["content-type"]?.toString().includes("application/json")) {
+		console.log("Hello");
+		return JSON.stringify(res.data, null, 2);
+	}
+
+	return res.data;
 }

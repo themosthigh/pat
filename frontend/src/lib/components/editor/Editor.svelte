@@ -14,15 +14,19 @@
 		automaticLayout: true,
 		fontSize: 12,
 		fontLigatures: true,
-		useShadowDOM: true
+		padding: { top: 20, bottom: 20 },
+		minimap: { autohide: true, renderCharacters: false },
+		scrollBeyondLastColumn: 0,
+		scrollBeyondLastLine: false,
+		smoothScrolling: true,
 	};
 </script>
 
 <!-- event.detail is the monaco instance. All options are reactive! -->
-<div class="h-full w-full overflow-hidden border rounded-sm">
+<div class="h-full w-full">
 	<Monaco
 		options={{ ...defaultOptions, ...options }}
-		theme="twilight"
+		theme="tomorrow-night"
 		on:ready={(event) => console.log(event.detail)}
 		bind:value
 	/>
